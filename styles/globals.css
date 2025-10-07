@@ -1,0 +1,45 @@
+/* Tailwind v4 基本読み込み */
+@import "tailwindcss";
+
+/* 必要ならアニメ系ユーティリティ（任意）
+@import "tw-animate-css";
+*/
+
+/* ダークトグル（全体は dark クラスに依存） */
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    --bg: 250 250 248; /* light */
+    --fg: 24 24 27;    /* zinc-900 */
+    --accent: 198 166 100; /* 金茶 hsl相当をRGBで近似 */
+    --accent-ink: #C6A664;
+    color-scheme: light dark;
+  }
+
+  .dark {
+    --bg: 10 10 12;    /* near-black */
+    --fg: 244 244 245;  /* zinc-100 */
+  }
+
+  html {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+/* 角丸のチューニング例（任意） */
+@theme inline {
+  --radius: 20px;
+  --radius-xl: 24px;
+}

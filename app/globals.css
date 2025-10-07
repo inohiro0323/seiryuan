@@ -1,0 +1,63 @@
+/* Tailwind v4 entry */
+@import "tailwindcss";
+
+/* ---- Theme: 木造旅館 × 和紙の光 -------------------------------------- */
+:root{
+  --bg: #f7f3ee;          /* 和紙っぽい生成り */
+  --ink: #2d2a27;         /* 墨色 */
+  --accent: #b08a57;      /* 金茶（行灯の明かり） */
+  --wood: #7a5a38;        /* 木（柱・格子） */
+}
+
+.dark{
+  --bg: #0b0b0c;
+  --ink: #e9e9ea;
+  --accent: #c6a664;
+  --wood: #594127;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Shippori Mincho", "Noto Serif JP", serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 和紙の粒子感 */
+.body-paper {
+  background:
+    radial-gradient(1200px 400px at 50% -10%, rgba(176,138,87,0.08), transparent),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 2px, transparent 2px 4px),
+    var(--bg);
+}
+
+/* 柔らかい容器 */
+.panel {
+  @apply rounded-2xl border p-6;
+  border-color: color-mix(in hsl, black 8%, transparent);
+  background: color-mix(in hsl, white 75%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+/* CTAボタン */
+.btn-primary {
+  @apply inline-block rounded-xl px-5 py-2 text-sm;
+  color: var(--ink);
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover { opacity: .9; }
+
+/* 小さなユーティリティ */
+.text-balance { text-wrap: balance; }
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* Tailwind theme tweaks */
+@theme inline {
+  --radius: 18px;
+  --radius-xl: 22px;
+}
